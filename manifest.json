@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "everlime",
+    "version": "1.0",
+    "description": "helpfully attaches attachments to your gmail emails for you if you forget",
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
+    "host_permissions": [
+      "https://mail.google.com/*",
+      "https://api.anthropic.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://mail.google.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "options_page": "options.html"
+  }
